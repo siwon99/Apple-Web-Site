@@ -1,0 +1,64 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  word-break: keep-all; /* 문장이 중간에 끊기지 않도록 계속 유지한다*/
+}
+
+/* Header */
+header {
+  background-color: #3a3a3a;
+}
+
+.inner {
+
+}
+
+ul.menu {
+  height: 44px;
+  max-width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+ul.menu li {
+  display: flex;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #f5f5f5;
+  opacity: .8;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+.apple-logo a,
+.search-starter a,
+.basket-starter a {
+  width: 14px;
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center 13px;
+}
+
+.apple-logo a {
+  background-image: url("../images/header_apple.svg");
+}
+
+.search-starter a {
+  background-image: url("../images/header_search.svg");
+}
+
+.basket-starter a {
+  background-image: url("../images/header_bag.svg");
+}
+
+.menu a:hover {
+  opacity: 1;
+}
