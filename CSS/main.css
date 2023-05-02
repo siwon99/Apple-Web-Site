@@ -1,3 +1,4 @@
+/* Commom */
 body {
   padding: 0;
   margin: 0;
@@ -7,13 +8,13 @@ body {
   word-break: keep-all; /* 문장이 중간에 끊기지 않도록 계속 유지한다*/
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Header */
 header {
   background-color: #3a3a3a;
-}
-
-.inner {
-
 }
 
 ul.menu {
@@ -24,11 +25,12 @@ ul.menu {
   justify-content: space-around;
 }
 
-ul.menu li {
+ul.menu > li { /* 자식선택자만(후손 선택자 X)선택 */
   display: flex;
+  position: relative;
 }
 
-.menu a {
+ul.menu > li > a {
   text-decoration: none;
   color: #f5f5f5;
   opacity: .8;
@@ -38,27 +40,93 @@ ul.menu li {
   font-size: 11px;
 }
 
-.apple-logo a,
-.search-starter a,
-.basket-starter a {
+.apple-logo > a,
+.search-starter > a,
+.basket-starter > a {
   width: 14px;
   text-indent: -9999px;
   background-repeat: no-repeat;
   background-position: center 13px;
 }
 
-.apple-logo a {
+.apple-logo > a {
   background-image: url("../images/header_apple.svg");
 }
 
-.search-starter a {
+.search-starter > a {
   background-image: url("../images/header_search.svg");
 }
 
-.basket-starter a {
+.basket-starter > a {
   background-image: url("../images/header_bag.svg");
 }
 
-.menu a:hover {
+.menu > a:hover {
   opacity: 1;
+}
+
+/* Header 안 장바구니 드롭다운 메뉴 */
+.basket {
+  display: none;
+  width: 290px;
+  padding: 10px 20px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -6px;
+}
+
+.basket.show {
+  display: block;
+}
+
+.basket .arrow {
+  width: 20px;
+  height: 10px;
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  overflow: hidden;
+}
+
+.basket .arrow:before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 1px solid #d2d2d2;
+  background-color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 0; 
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.basket .message {
+  padding: 30px 0;
+  font-size: 13px;
+  color: #6e6e6e;
+  text-align: center;
+}
+
+.basket ul {
+  margin-top: 10px;
+}
+
+.basket li {
+  border-top: 1px solid #d2d2d2;
+}
+
+.basket li a {
+  display: block;
+  padding: 14px;
+  font-size: 13px;
+  color: #0071e3;
+}
+
+.basket li a:hover {
+  text-decoration: underline;
 }
