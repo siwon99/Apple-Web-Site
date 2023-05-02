@@ -40,6 +40,10 @@ ul.menu > li > a {
   font-size: 11px;
 }
 
+.menu > li > a:hover {
+  opacity: 1;
+}
+
 .apple-logo > a,
 .search-starter > a,
 .basket-starter > a {
@@ -59,10 +63,6 @@ ul.menu > li > a {
 
 .basket-starter > a {
   background-image: url("../images/header_bag.svg");
-}
-
-.menu > a:hover {
-  opacity: 1;
 }
 
 /* Header 안 장바구니 드롭다운 메뉴 */
