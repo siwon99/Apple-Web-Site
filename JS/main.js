@@ -1,6 +1,12 @@
 const basketStart = document.querySelector('.basket-starter');
 const basketEl = basketStart.querySelector('.basket');
 
+const headerEl = document.querySelector('header');
+const searchWrap = headerEl.querySelector('.search-wrap');
+const searchStarter = headerEl.querySelector('.search-starter');
+const searchCloser = searchWrap.querySelector('.search-closer');
+const searchShadow = searchWrap.querySelector('.shadow');
+
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
   e.stopPropagation();
@@ -17,7 +23,7 @@ basketEl.addEventListener('click', (e) => {
   e.stopPropagation();
 })
 
-window.addEventListener('click', () => {
+window.addEventListener('click',() => {
   hideBasket();
 });
 
@@ -27,4 +33,19 @@ function showBasket() {
 
 function hideBasket() {
   basketEl.classList.remove('show');
+}
+
+searchStarter.addEventListener('click', showSearch);
+searchCloser.addEventListener('click', hideSearch);
+searchShadow.addEventListener('click', hideSearch);
+
+//검색바가 나타나면 화면 스크롤이 안되고 고정된다
+function showSearch() {
+  headerEl.classList.add('searching');
+  document.documentElement.classList.add('fixed');
+}
+
+function hideSearch() {
+  headerEl.classList.remove('searching');
+  document.documentElement.classList.remove('fixed');
 }
