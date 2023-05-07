@@ -8,7 +8,7 @@ const searchStarter = headerEl.querySelector('.search-starter');
 const searchCloser = searchWrap.querySelector('.search-closer');
 const searchShadow = searchWrap.querySelector('.shadow');
 const searchInput = searchWrap.querySelector('input');
-const searchDelay =[... searchWrap.querySelectorAll('li')];
+const searchDelay =[...searchWrap.querySelectorAll('li')];
 
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
