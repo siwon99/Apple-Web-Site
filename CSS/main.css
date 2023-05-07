@@ -21,30 +21,56 @@ a {
   color: #1d1d1d;
 }
 
+/* Btn */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  font-size: 11px;
+  line-height: 1;
+  color: #fff;
+  background-color: #0071e3;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: .7;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 4px #81b9f1;
+}
+
 /* Header */
 header {
   background-color: #3a3a3a;
 }
 
-.inner {
+header .inner {
   max-width: 1020px;
   margin: 0 auto;
   position: relative;
 }
 
-ul.menu {
+header ul.menu {
   height: 44px;
   display: flex;
   justify-content: space-between;
 }
 
-ul.menu > li { /* 자식선택자만(후손 선택자 X)선택 */
+header ul.menu > li { /* 자식선택자만(후손 선택자 X)선택 */
   display: flex;
   position: relative;
+  cursor: pointer;
   transition: .4s;
 }
 
-ul.menu > li > a {
+header ul.menu > li > a {
   text-decoration: none;
   color: #f5f5f5;
   opacity: .8;
@@ -54,7 +80,7 @@ ul.menu > li > a {
   font-size: 11px;
 }
 
-.menu > li > a:hover {
+header ul.menu > li > a:hover {
   opacity: 1;
 }
 
@@ -80,7 +106,7 @@ ul.menu > li > a {
 }
 
 /* Header 안 장바구니 드롭다운 메뉴 */
-.basket {
+header .basket {
   visibility: hidden;
   width: 290px;
   padding: 10px 20px;
@@ -95,12 +121,12 @@ ul.menu > li > a {
   opacity: 0;
 }
 
-.basket.show {
+header .basket.show {
   visibility: visible;
   opacity: 1;
 }
 
-.basket .arrow {
+header .basket .arrow {
   width: 20px;
   height: 10px;
   position: absolute;
@@ -109,7 +135,7 @@ ul.menu > li > a {
   overflow: hidden;
 }
 
-.basket .arrow:before {
+header .basket .arrow:before {
   content: "";
   width: 12px;
   height: 12px;
@@ -122,29 +148,29 @@ ul.menu > li > a {
   left: 50%;
 }
 
-.basket .message {
+header .basket .message {
   padding: 30px 0;
   font-size: 13px;
   color: #6e6e6e;
   text-align: center;
 }
 
-.basket ul {
+header .basket ul {
   margin-top: 10px;
 }
 
-.basket li {
+header .basket ul li {
   border-top: 1px solid #d2d2d2;
 }
 
-.basket li a {
+header .basket ul li a {
   display: block;
   padding: 14px;
   font-size: 13px;
   color: #0071e3;
 }
 
-.basket li a:hover {
+header .basket ul li a:hover {
   text-decoration: underline;
 }
 
@@ -159,13 +185,13 @@ header .search-wrap {
   transition: .4s;
 }
 
-.search {
+header .search {
   max-width: 680px;
   margin: 0 auto;
   position: relative;
 }
 
-.search .shadow {
+header .search .shadow {
   position: fixed;
   top: 0;
   left: 0;
@@ -174,11 +200,11 @@ header .search-wrap {
   background-color: rgba(0, 0, 0, .4);
 }
 
-.search .textfield {
+header .search .textfield {
   position: relative;
 }
 
-.search input {
+header .search input {
   width: 100%;
   height: 44px;
   padding: 0 40px;
@@ -190,7 +216,7 @@ header .search-wrap {
   color: #fff;
 }
 
-.search .search-icon {
+header .search .search-icon {
   width: 40px;
   height: 44px;
   background-image: url(../images/header_search.svg);
@@ -202,7 +228,7 @@ header .search-wrap {
   opacity: .4;
 }
 
-.search .search-closer {
+header .search .search-closer {
   width: 40px;
   height: 44px;
   background-image: url(../images/header_close.svg);
@@ -215,11 +241,11 @@ header .search-wrap {
   cursor: pointer;
 }
 
-.search .search-closer:hover {
+header .search .search-closer:hover {
   opacity: 1;
 }
 
-.autocompletes {
+header .search .autocompletes {
   width: 100%;
   padding: 26px 40px 20px;
   border-radius: 0 0 18px 18px;
@@ -230,13 +256,13 @@ header .search-wrap {
   left: 0;
 }
 
-.autocompletes h3 {
+header .search .autocompletes h3 {
   font-size: 12px;
   color: #6e6e6e;
   margin-bottom: 12px;
 }
 
-.autocompletes ul li a {
+header .search .autocompletes ul li a {
   display: block;
   margin: 0 -14px;
   padding: 10px 0 10px 30px;
@@ -244,15 +270,15 @@ header .search-wrap {
   font-size: 14px;
 }
 
-.autocompletes ul li:hover a {
+header .search .autocompletes ul li:hover a {
   background-color: #f5f5f5;
   color: #0071e3;
 }
 
-.search input,
-.search .search-icon,
-.search .autocompletes h3,
-.search .autocompletes li {
+header .search input,
+header .search .search-icon,
+header .search .autocompletes h3,
+header .search .autocompletes li {
   transition: .6s;
   transform: translate(100px, 0);
 }
@@ -268,10 +294,59 @@ header.searching .search-wrap {
   transition-delay: .2s;
 }
 
-.searching .search input,
-.searching .search .search-icon,
-.searching .search .autocompletes h3,
-.searching .search .autocompletes li {
+header.searching .search input,
+header.searching .search .search-icon,
+header.searching .search .autocompletes h3,
+header.searching .search .autocompletes li {
   transition-delay: .2s;
   transform: translate(0, 0);
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #d2d2d2;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+}
+
+nav .inner {
+  max-width: 1000px;
+  height: 52px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+nav h1 {
+  flex-grow: 1;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+nav .menu {
+  display: flex;
+  gap: 12px;
+  margin-right: 18px;
+}
+
+nav .menu li a {
+  display: block;
+  padding: 6px;
+  font-size: 11px;
+}
+
+nav .menu li:hover a {
+  color: #0071e3;
+}
+
+nav .menu li.active a {
+  opacity: .5;
+  cursor: default;
+}
+
+nav .menu li.active:hover a {
+  color: #1d1d1d;
 }

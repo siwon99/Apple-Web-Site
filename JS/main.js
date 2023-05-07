@@ -45,10 +45,10 @@ searchShadow.addEventListener('click', hideSearch);
 function showSearch() {
   headerEl.classList.add('searching');
   document.documentElement.classList.add('fixed');
-  headerMenuEls.reverse().forEach((el, index) => {
+  headerMenuEls.forEach((el, index) => {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's' //0 * 4초 / 12개 + 초
   });
-  searchDelay.forEach((el, index) => {
+  searchDelay.reverse().forEach((el, index) => {
     el.style.transitionDelay = index * .4 / searchDelay.length + 's';
   })
   setTimeout(() => {
@@ -59,7 +59,7 @@ function showSearch() {
 function hideSearch() {
   headerEl.classList.remove('searching');
   document.documentElement.classList.remove('fixed');
-  headerMenuEls.reverse().forEach((el, index) => {
+  headerMenuEls.forEach((el, index) => {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'; //0 * 4초 / 12개 + 초
   });
   searchDelay.reverse().forEach((el, index) => {
