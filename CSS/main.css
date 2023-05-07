@@ -35,12 +35,13 @@ header {
 ul.menu {
   height: 44px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 ul.menu > li { /* 자식선택자만(후손 선택자 X)선택 */
   display: flex;
   position: relative;
+  transition: .4s;
 }
 
 ul.menu > li > a {
@@ -155,6 +156,7 @@ header .search-wrap {
   width: 100%;
   visibility: hidden;
   opacity: 0;
+  transition: .4s;
 }
 
 .search {
@@ -247,6 +249,14 @@ header .search-wrap {
   color: #0071e3;
 }
 
+.search input,
+.search .search-icon,
+.search .autocompletes h3,
+.search .autocompletes li {
+  transition: .6s;
+  transform: translate(100px, 0);
+}
+
 header.searching ul.menu > li {
   opacity: 0;
   transform: scale(.7);
@@ -256,4 +266,12 @@ header.searching .search-wrap {
   opacity: 1;
   visibility: visible;
   transition-delay: .2s;
+}
+
+.searching .search input,
+.searching .search .search-icon,
+.searching .search .autocompletes h3,
+.searching .search .autocompletes li {
+  transition-delay: .2s;
+  transform: translate(0, 0);
 }

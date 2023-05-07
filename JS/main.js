@@ -2,15 +2,17 @@ const basketStart = document.querySelector('.basket-starter');
 const basketEl = basketStart.querySelector('.basket');
 
 const headerEl = document.querySelector('header');
+const headerMenuEls = [...headerEl.querySelectorAll('ul.menu > li')];
 const searchWrap = headerEl.querySelector('.search-wrap');
 const searchStarter = headerEl.querySelector('.search-starter');
 const searchCloser = searchWrap.querySelector('.search-closer');
 const searchShadow = searchWrap.querySelector('.shadow');
+const searchInput = searchWrap.querySelector('input');
+const searchDelay =[... searchWrap.querySelectorAll('li')];
 
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
   e.stopPropagation();
-  
   if (basketEl.classList.contains('show')) {
     hideBasket();
   } else {
@@ -43,9 +45,26 @@ searchShadow.addEventListener('click', hideSearch);
 function showSearch() {
   headerEl.classList.add('searching');
   document.documentElement.classList.add('fixed');
+  headerMenuEls.reverse().forEach((el, index) => {
+    el.style.transitionDelay = index * .4 / headerMenuEls.length + 's' //0 * 4초 / 12개 + 초
+  });
+  searchDelay.forEach((el, index) => {
+    el.style.transitionDelay = index * .4 / searchDelay.length + 's';
+  })
+  setTimeout(() => {
+    searchInput.focus();
+  }, 600);
 }
 
 function hideSearch() {
   headerEl.classList.remove('searching');
   document.documentElement.classList.remove('fixed');
+  headerMenuEls.reverse().forEach((el, index) => {
+    el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'; //0 * 4초 / 12개 + 초
+  });
+  searchDelay.reverse().forEach((el, index) => {
+    el.style.transitionDelay = index * .4 / searchDelay.length + 's';
+  })
+  searchDelay.reverse()
+  searchInput.value=''
 }
