@@ -1,4 +1,4 @@
-const basketStart = document.querySelector('.basket-starter');
+const basketStart = document.querySelector('header .basket-starter');
 const basketEl = basketStart.querySelector('.basket');
 
 const headerEl = document.querySelector('header');
@@ -25,7 +25,7 @@ basketEl.addEventListener('click', (e) => {
   e.stopPropagation();
 })
 
-window.addEventListener('click',() => {
+window.addEventListener('click', () => {
   hideBasket();
 });
 
@@ -38,17 +38,19 @@ function hideBasket() {
 }
 
 searchStarter.addEventListener('click', showSearch);
-searchCloser.addEventListener('click', hideSearch);
+searchCloser.addEventListener('click', (e) => {
+  e.stopPropagation();
+  hideSearch();
+});
 searchShadow.addEventListener('click', hideSearch);
 
 //검색바가 나타나면 화면 스크롤이 안되고 고정된다
 function showSearch() {
   headerEl.classList.add('searching');
-  document.documentElement.classList.add('fixed');
-  headerMenuEls.forEach((el, index) => {
+  headerMenuEls.reverse().forEach((el, index) => {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's' //0 * 4초 / 12개 + 초
   });
-  searchDelay.reverse().forEach((el, index) => {
+  searchDelay.forEach((el, index) => {
     el.style.transitionDelay = index * .4 / searchDelay.length + 's';
   })
   setTimeout(() => {
@@ -58,8 +60,8 @@ function showSearch() {
 
 function hideSearch() {
   headerEl.classList.remove('searching');
-  document.documentElement.classList.remove('fixed');
-  headerMenuEls.forEach((el, index) => {
+
+  headerMenuEls.reverse().forEach((el, index) => {
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'; //0 * 4초 / 12개 + 초
   });
   searchDelay.reverse().forEach((el, index) => {
@@ -68,3 +70,26 @@ function hideSearch() {
   searchDelay.reverse()
   searchInput.value=''
 }
+
+function playScroll() {
+  document.documentElement.classList.remove('fixed');
+}
+
+function stopScroll() {
+  document.documentElement.classList.add('fixed');
+}
+
+//entries는 배열 속성
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return
+    }
+    entry.target.classList.add('show');
+  })
+})
+
+const infoEls = document.querySelectorAll('.info');
+infoEls.forEach((el) => {
+  io.observe(el);
+})

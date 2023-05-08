@@ -146,6 +146,14 @@ a.link::after {
 .info {
   max-width: 330px;
   margin-bottom: 24px;
+  opacity: 0;
+  transition: 1s;
+  transform: translate(0, 100px);
+}
+
+.info.show {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .info .icon {
@@ -620,6 +628,108 @@ nav .menu li.active:hover a {
   background-image: url("../images/power_create_caption.png");
   transform: translate(543px, 908px);
 }
+
+/* Display */
+.display {
+  margin-top: 450px;
+}
+
+
+/* Display notes */
+.display .notes h1 {
+  width: 630px;
+  height: 370px;
+  background-image: url("../images/display_headline.png");
+  transform: translate(104px, 0);
+}
+
+.display .notes .figures {
+  height: 814px;
+  margin-top: 26px;
+}
+
+.display .notes figcaption {
+  width: 145px;
+  height: 45px;
+  background-image: url("../images/display_notes_caption.png");
+  transform: translate(707px, -16px);
+}
+
+/* Display shareplay */
+.display .shareplay {
+  margin-top: 55px;
+}
+
+.display .shareplay .figures {
+  height: 630px;
+}
+
+.display .shareplay figure {
+  transform: translate(-360px, 0);
+}
+
+.display .shareplay figcaption {
+  width: 110px;
+  height: 48px;
+  background-image: url("../images/display_shareplay_caption.png");
+  transform: translate(300px, 658px);
+}
+
+/* Video */
+.video {
+  margin-top: 303px;
+}
+
+/* Video Stage */
+.video .stage {
+  position: relative;
+}
+
+.video .stage h1 {
+  width: 650px;
+  height: 450px;
+  background-image: url("../images/camera_headline.png");
+  transform: translate(-25px, 0);
+}
+
+.video .stage .info {
+  position: absolute;
+  top: 150px;
+  right: 0;
+}
+
+.video .stage .figures {
+  height: 770px;
+  margin-top: 24px;
+}
+
+.video .stage figure {
+  transform: translate(90px, 0);
+}
+
+.video .stage figcaption {
+  width: 130px;
+  height: 110px;
+  background-image: url("../images/camera_hardware_caption.png");
+  transform: translate(-116px, 383px);
+}
+
+/* Video Edit */
+.video .edit .figures {
+  height: 910px;
+}
+
+.video .edit figure {
+  transform: translate(20px, 0);
+}
+
+.video .edit figcaption {
+  width: 130px;
+  height: 47px;
+  background-image: url("../images/camera_edit_caption.png");
+  transform: translate(27px, 905px);
+}
+
 
 @keyframes sprite-icon {
   /* 1~10 */
