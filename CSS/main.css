@@ -707,6 +707,40 @@ nav .menu li.active:hover a {
   transform: translate(90px, 0);
 }
 
+.video .stage video {
+  position: absolute;
+  top: 36px;
+  left: 76px;
+  -webkit-mask-image: url("../images/camera_video_mask.png");
+  mask-image: url("../images/camera_video_mask.png");
+}
+
+.video .stage .controller--play,
+.video .stage .controller--pause {
+  color: var(--color-link);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translate(428px, -134px) rotate(-3deg);
+}
+
+.video .stage .controller--play:hover,
+.video .stage .controller--pause:hover {
+  text-decoration: underline;
+}
+
+.video .stage .controller--play.hide,
+.video .stage .controller--pause.hide {
+  display: none;
+}
+
+.video .stage .controller--play img,
+.video .stage .controller--pause img {
+  width: 20px;
+  margin-top: -2px;
+}
+
 .video .stage figcaption {
   width: 130px;
   height: 110px;

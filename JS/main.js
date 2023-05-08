@@ -10,6 +10,10 @@ const searchShadow = searchWrap.querySelector('.shadow');
 const searchInput = searchWrap.querySelector('input');
 const searchDelay =[...searchWrap.querySelectorAll('li')];
 
+const video = document.querySelector(".stage video");
+const playBtn = document.querySelector(".stage .controller--play");
+const pauseBtn = document.querySelector(".stage .controller--pause");
+
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
   e.stopPropagation();
@@ -93,3 +97,16 @@ const infoEls = document.querySelectorAll('.info');
 infoEls.forEach((el) => {
   io.observe(el);
 })
+
+//비디오 재생, 일시정지
+playBtn.addEventListener('click', () => {
+  video.play();
+  playBtn.classList.add('hide');
+  pauseBtn.classList.remove('hide');
+});
+
+pauseBtn.addEventListener('click', () => {
+  video.pause();
+  playBtn.classList.remove('hide');
+  pauseBtn.classList.add('hide');
+});
