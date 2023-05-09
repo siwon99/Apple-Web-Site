@@ -7,6 +7,7 @@ export default [
     price: 999000,
     url: '/ipad-pro/'
   },
+
   {
     thumbnail: './images/compare_ipad_air.png',
     colors: ['#68696D', '#E2E3E5', '#E8D2CE', '#B9B8D1', '#88AEBF'],
@@ -15,6 +16,7 @@ export default [
     price: 779000,
     url: '/ipad-air/'
   },
+
   {
     thumbnail: './images/compare_ipad_10_2.png',
     colors: ['#68696D', '#E2E3E5'],
@@ -23,6 +25,7 @@ export default [
     price: 449000,
     url: '/ipad-10.2/'
   },
+
   {
     thumbnail: './images/compare_ipad_mini.png',
     colors: ['#68696D', '#E2E3E5', '#E8D2CE', '#B9B8D1'],

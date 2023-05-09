@@ -1,3 +1,5 @@
+import ipads from '../data/ipads.js'
+
 const basketStart = document.querySelector('header .basket-starter');
 const basketEl = basketStart.querySelector('.basket');
 
@@ -13,6 +15,10 @@ const searchDelay =[...searchWrap.querySelectorAll('li')];
 const video = document.querySelector(".stage video");
 const playBtn = document.querySelector(".stage .controller--play");
 const pauseBtn = document.querySelector(".stage .controller--pause");
+const infoEls = document.querySelectorAll('.info');
+
+const items = document.querySelector("section.compare .items");
+
 
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
@@ -93,7 +99,6 @@ const io = new IntersectionObserver((entries) => {
   })
 })
 
-const infoEls = document.querySelectorAll('.info');
 infoEls.forEach((el) => {
   io.observe(el);
 })
@@ -109,4 +114,31 @@ pauseBtn.addEventListener('click', () => {
   video.pause();
   playBtn.classList.remove('hide');
   pauseBtn.classList.add('hide');
+});
+
+//각 el의 name속성을 item클래스를 가진 div요소 텍스트로 추가
+//item을 items 배열에 추가
+ipads.forEach((ipad) => {
+  const item = document.createElement('div');
+  item.classList.add('item');
+
+  let colorList = '';
+  ipad.colors.forEach((co) => {
+    colorList += `<li style="background-color: ${co};"></li>`
+  });
+
+  item.innerHTML = /* HTML */ `
+  <div class="thumbnail">
+    <img src="${ipad.thumbnail}" alt="${ipad.name}" />  
+  </div>
+  <ul class="colors">
+    ${colorList}
+  </ul>
+  <h3 class="name">${ipad.name}</h3>
+  <p class="tagline">${ipad.tagline}</p>
+  <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p>
+  <button class="btn">구입하기</button>
+  <a href="${ipad.url}" class="link">더 알아보기</a>
+  `
+  items.append(item);
 });
