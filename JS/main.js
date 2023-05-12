@@ -22,6 +22,8 @@ const items = document.querySelector("section.compare .items");
 
 const navigationsEl = document.querySelector('footer .navigations')
 
+const thisYear = document.querySelector('span.this-year');
+
 
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
 basketStart.addEventListener('click', (e) => {
@@ -169,3 +171,5 @@ navigations.forEach(nav => {
 
   navigationsEl.append(mapEl)
 })
+
+thisYear.textContent = new Date().getFullYear();
