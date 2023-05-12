@@ -20,9 +20,6 @@ html.fixed {
 }
 
 body {
-  height: 100000px;
-  padding: 0;
-  margin: 0;
   font-size: 16px;
   color: var(--color-font);
   line-height: 1;
@@ -1278,6 +1275,82 @@ footer .warning li {
   font-size: 11px;
   line-height: 1.5;
   color: var(--color-font-darkgray);
+}
+
+/* Footer Breakcrumbs */
+footer .breakcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+footer .breakcrumbs a {
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+  position: relative;
+}
+
+footer .breakcrumbs a.apple-logo {
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/path_apple.svg");
+}
+
+footer .breakcrumbs a:hover{
+  text-decoration: underline;
+}
+
+footer .breakcrumbs a::after {
+  content: "";
+  width: 8px;
+  height: 18px;
+  position: absolute;
+  background-image: url("../images/path_div.svg");
+  top: 0;
+  bottom: 0;
+  right: -18px;
+  margin: auto;
+}
+
+footer .breakcrumbs a:last-child::after {
+  display: none;
+}
+
+/* Footer Navigations */
+footer .navigations {
+  margin-bottom: 40px;
+  height: 344px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+footer .navigations .map {
+  margin-top: 24px;
+}
+
+footer .navigations .map:nth-child(6) {
+  padding-bottom: 100px;
+}
+
+footer .navigations .map h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+footer .navigations .map li {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+footer .navigations .map li a {
+  color: var(--color-font-darkgray);
+}
+
+footer .navigations .map li a:hover {
+  text-decoration: underline;
 }
 
 

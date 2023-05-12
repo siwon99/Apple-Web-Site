@@ -1,4 +1,5 @@
 import ipads from '../data/ipads.js'
+import navigations from '../data/navigations.js'
 
 const basketStart = document.querySelector('header .basket-starter');
 const basketEl = basketStart.querySelector('.basket');
@@ -18,6 +19,8 @@ const pauseBtn = document.querySelector(".stage .controller--pause");
 const infoEls = document.querySelectorAll('.info');
 
 const items = document.querySelector("section.compare .items");
+
+const navigationsEl = document.querySelector('footer .navigations')
 
 
 //click했을 경우 window까지 click이 전파되는 것을 멈춤
@@ -142,3 +145,27 @@ ipads.forEach((ipad) => {
   `
   items.append(item);
 });
+
+navigations.forEach(nav => {
+  const mapEl = document.createElement('div')
+  mapEl.classList.add('map')
+
+  let mapList = ''
+  nav.maps.forEach(map => {
+    mapList += /* html */ `<li>
+      <a href="${map.url}">${map.name}</a>
+    </li>`
+  })
+
+  mapEl.innerHTML = /* html */ `
+    <h3>
+      <span class="text">${nav.title}</span>
+      <span class="icon">+</span>
+    </h3>
+    <ul>
+      ${mapList}
+    </ul>
+  `
+
+  navigationsEl.append(mapEl)
+})
